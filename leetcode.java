@@ -9,7 +9,7 @@ public class leetcode {
 
         
     }
-
+    // use hash map to instantly check for difference value, map will add index of last occurrence of a num, don’t use same element twice
     int[] twosum(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -39,4 +39,20 @@ public class leetcode {
         }
         return max;
     }
+
+    //  Best Time to Buy and Sell Stock
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int minPrice = Integer.MAX_VALUE;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+            }
+            if (prices[i] - minPrice > maxProfit) {
+                maxProfit = prices[i] - minPrice;
+            }
+        }
+        return maxProfit;
+    }
+    
 }
